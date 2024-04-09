@@ -19,5 +19,11 @@ services:
       context: .
     depends_on:
       - liferay
+  nodejs:
+    build:
+      dockerfile: client-extensions/node-js/Dockerfile
+      context: .
+    depends_on:
+      - liferay
 volumes:
   liferay_data:
