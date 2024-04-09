@@ -2,8 +2,8 @@
 
 Example to run Liferay and Client Extensions in a Docker Compose stack.
 
-- [Spring Boot](spring-boot-example)
-- [Node JS](#node-js-example)
+  - [Spring Boot](#spring-boot)
+  - [Node JS](#node-js)
 
 ## Requirements
 
