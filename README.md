@@ -10,7 +10,7 @@ To test this repository, you need to run `docker compose build` first to build t
 
 To make the [Spring Boot Sample](https://github.com/lgdd/liferay-client-extensions-samples/tree/main/liferay-sample-etc-spring-boot) work, you need to make the following list of changes.
 
-1 - Add the information about Liferay aby adding the following lines to the [`application-default.properties`](client-extensions/spring-boot/src/main/resources/application-default.properties#L17) file:
+1 - Add the information about Liferay by adding the following lines to the [`application-default.properties`](client-extensions/spring-boot/src/main/resources/application-default.properties#L17) file:
 
 ```properties
 com.liferay.lxc.dxp.domains=liferay:8080
