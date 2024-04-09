@@ -1,0 +1,23 @@
+version: "3"
+services:
+  liferay:
+    image: liferay/dxp:2024.q1.4
+    environment:
+      JAVA_VERSION: zulu11
+      LIFERAY_VIRTUAL_PERIOD_HOSTS_PERIOD_VALID_PERIOD_HOSTS: liferay,localhost,127.0.0.1,[::1],[0:0:0:0:0:0:0:1]
+      # if you have an activation key under /configs/local/osgi/modules
+      # LIFERAY_DISABLE_TRIAL_LICENSE: true
+    ports:
+      - "8080:8080"
+    volumes:
+      - liferay_data:/opt/liferay/data
+      - ./configs/local:/mnt/liferay/files
+      - ./bundles/osgi/client-extensions:/opt/liferay/osgi/client-extensions
+  springboot:
+    build:
+      dockerfile: client-extensions/spring-boot/Dockerfile
+      context: .
+    depends_on:
+      - liferay
+volumes:
+  liferay_data:

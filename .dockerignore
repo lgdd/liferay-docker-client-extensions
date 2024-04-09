@@ -1,0 +1,8 @@
+client-extensions/**/build
+client-extensions/**/dist
+bundles
+.liferay-pid
+.gitignore
+docker-compose.yml
+Dockerfile
+gradlew.bat
