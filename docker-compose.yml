@@ -1,7 +1,11 @@
 version: "3"
 services:
   liferay:
-    image: liferay/dxp:2024.q1.4
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        - TARGET_ENV=local
     environment:
       JAVA_VERSION: zulu11
       LIFERAY_VIRTUAL_PERIOD_HOSTS_PERIOD_VALID_PERIOD_HOSTS: liferay,localhost,127.0.0.1,[::1],[0:0:0:0:0:0:0:1]
@@ -18,12 +22,14 @@ services:
       dockerfile: client-extensions/spring-boot/Dockerfile
       context: .
     depends_on:
-      - liferay
+      liferay:
+        condition: service_healthy
   nodejs:
     build:
       dockerfile: client-extensions/node-js/Dockerfile
       context: .
     depends_on:
-      - liferay
+      liferay:
+        condition: service_healthy
 volumes:
   liferay_data:
