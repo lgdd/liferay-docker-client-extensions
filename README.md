@@ -48,7 +48,7 @@ COPY --from=build /workspace/client-extensions/spring-boot/build/libs/*.jar /opt
 Using the `portal-ext.properties`:
 ```diff
 virtual.hosts.valid.hosts=\
-+   liferay
++   liferay,\
     localhost,\
     127.0.0.1,\
     [::1],\
