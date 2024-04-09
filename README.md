@@ -4,7 +4,7 @@ Example to run Liferay and Client Extensions in a Docker Compose stack.
 
 # Requirements
 
-To test this repository, you need to run `docker compose build` first to build the client extensions' images.
+To test this repository, you need to run `docker compose build` first to build the client extensions' images and the Liferay (which ships the client extensions' configurations).
 
 # Spring Boot Example
 
