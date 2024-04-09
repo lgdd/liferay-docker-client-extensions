@@ -6,16 +6,16 @@ Example to run Liferay and Client Extensions in a Docker Compose stack.
 
 To make the [Spring Boot Sample](https://github.com/lgdd/liferay-client-extensions-samples/tree/main/liferay-sample-etc-spring-boot) work, you need to make the following list of changes.
 
-1 - Add the following lines to the [`application-default.properties`](client-extensions/spring-boot/src/main/resources/application-default.properties) file:
+1 - Add the following lines to the [`application-default.properties`](client-extensions/spring-boot/src/main/resources/application-default.properties#L17) file:
 
 ```properties
 com.liferay.lxc.dxp.domains=liferay:8080
 com.liferay.lxc.dxp.mainDomain=liferay:8080
 com.liferay.lxc.dxp.server.protocol=http
 ```
-> `liferay` matches the name of the service in our `docker-compose.yml` file.
+> `liferay` matches the name of the service in our [`docker-compose.yml`](docker-compose.yml) file.
 
-2 - Update the service address in the client-extension.yaml file:
+2 - Update the service address in the [`client-extension.yaml`](client-extensions/spring-boot/client-extension.yaml#L9) file:
 ```diff
 liferay-sample-etc-spring-boot-oauth-application-user-agent:
 -   .serviceAddress: localhost:58081
@@ -24,7 +24,7 @@ liferay-sample-etc-spring-boot-oauth-application-user-agent:
 ```
 > `springboot` matches the name of the service in our `docker-compose.yml` file.
 
-3 - Update the Dockerfile for our Spring Boot application:
+3 - Update the [`Dockerfile`](client-extensions/spring-boot/Dockerfile) for our Spring Boot application:
 ```Dockerfile
 FROM azul/zulu-openjdk-alpine:11-latest as build
 
@@ -51,7 +51,7 @@ virtual.hosts.valid.hosts=\
     [0:0:0:0:0:0:0:1]
 ```
 
-Or using environment variables:
+Or using [environment variables](docker-compose.yml#L7):
 ```diff
 services:
   liferay:
