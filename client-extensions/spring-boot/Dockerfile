@@ -1,6 +1,8 @@
 FROM azul/zulu-openjdk-alpine:11-latest as build
 ARG CLIENT_EXTENSION_NAME=spring-boot
 
+RUN apk add --no-cache dos2unix
+
 WORKDIR /workspace
 
 COPY gradle gradle
@@ -9,6 +11,7 @@ COPY gradle.properties gradle.properties
 COPY settings.gradle settings.gradle
 COPY build.gradle build.gradle
 
+RUN dos2unix gradlew
 RUN ./gradlew
 
 COPY platform.bndrun platform.bndrun
