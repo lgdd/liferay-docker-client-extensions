@@ -21,5 +21,5 @@ FROM liferay/jar-runner:latest
 ARG CLIENT_EXTENSION_NAME=spring-boot
 
 COPY --from=build --chown=liferay:liferay /workspace/client-extensions/$CLIENT_EXTENSION_NAME/build/libs/*.jar /opt/liferay/jar-runner.jar
-# COPY --from=build --chown=liferay:liferay /workspace/client-extensions/$CLIENT_EXTENSION_NAME/dxp-metadata /opt/liferay/dxp-metadata
-# ENV LIFERAY_ROUTES_DXP=/opt/liferay/dxp-metadata
+COPY --from=build --chown=liferay:liferay /workspace/client-extensions/$CLIENT_EXTENSION_NAME/dxp-metadata /opt/liferay/dxp-metadata
+ENV LIFERAY_ROUTES_DXP=/opt/liferay/dxp-metadata
