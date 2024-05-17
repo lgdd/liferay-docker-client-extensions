@@ -10,11 +10,11 @@ COPY gradlew gradlew
 COPY gradle.properties gradle.properties
 COPY settings.gradle settings.gradle
 COPY build.gradle build.gradle
+COPY platform.bndrun platform.bndrun
 
 RUN dos2unix gradlew
 RUN ./gradlew
 
-COPY platform.bndrun platform.bndrun
 COPY configs configs
 COPY client-extensions/$CLIENT_EXTENSION_NAME client-extensions/$CLIENT_EXTENSION_NAME
 
