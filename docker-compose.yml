@@ -14,8 +14,6 @@ services:
       - "8080:8080"
     volumes:
       - liferay_data:/opt/liferay/data
-      - ./configs/local:/mnt/liferay/files
-      - ./bundles/osgi/client-extensions:/opt/liferay/osgi/client-extensions
   springboot:
     build:
       dockerfile: client-extensions/spring-boot/Dockerfile
