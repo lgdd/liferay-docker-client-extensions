@@ -3,6 +3,10 @@ ARG CLIENT_EXTENSION_NAME=spring-boot
 
 RUN apk add --no-cache dos2unix
 
+WORKDIR /root/.liferay/workspace
+
+RUN wget https://raw.githubusercontent.com/lgdd/liferay-product-info/main/releases.json
+
 WORKDIR /workspace
 
 COPY gradle gradle
